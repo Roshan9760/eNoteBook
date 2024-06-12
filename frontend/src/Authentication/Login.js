@@ -1,51 +1,41 @@
-import React, { useState } from 'react'
-import {useNavigate} from "react-router-dom";
-import {loginRoute} from "../utils/ApiRoutes"
-import axios from "axios"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginRoute } from "../utils/ApiRoutes";
+import axios from "axios";
+import "../Css/Login.css";
 
 const Login = () => {
+  let navigate = useNavigate();
 
-   let navigate = useNavigate();
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
 
-
-    const [credentials, setCredentials] = useState({ email: "", password: "" });
-    // const [email,setEmail] =useState("")
-    // const [password,setPassword] =useState("")
-
-
-
-    const handleSubmit =async (e) => {
-        e.preventDefault()
-        // API Call
-
-        const {email,password} = credentials;
-         const { data } = await axios.post(loginRoute, {
-           email,
-           password,
-         });
-        //  console.log(data);
-         if (data.status === true) {
-           localStorage.setItem("token", data.authToken);
-           alert(data.message)
-           navigate("/");
-         } else {
-           alert("Invalid credentials");
-         }
-
-         // remove the fields after submit 
-         setCredentials({ email: "", password: "" });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = credentials;
+    const { data } = await axios.post(loginRoute, {
+      email,
+      password,
+    });
+    if (data.status === true) {
+      localStorage.setItem("token", data.authToken);
+      alert(data.message);
+      navigate("/");
+    } else {
+      alert("Invalid credentials");
     }
+    setCredentials({ email: "", password: "" });
+  };
 
-    const onChange = (e) => {
-      setCredentials({ ...credentials, [e.target.name]: e.target.value });
-      // eslint-disable-next-line
-      // 
-    };
-    return (
-      <div className="container my-4">
-        <h3>Login to your account</h3>
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div className="login-container container mt-5">
+      <div className="card shadow p-4">
+        <h3 className="text-center mb-4">Login to Your Account</h3>
         <form onSubmit={handleSubmit}>
-          <div className=" mb-3 my-5">
+          <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Email
             </label>
@@ -60,7 +50,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="  mb-3">
+          <div className="mb-3">
             <label htmlFor="password" className="form-label">
               Password
             </label>
@@ -78,18 +68,19 @@ const Login = () => {
             <input
               type="checkbox"
               className="form-check-input"
-              id="exampleCheck1"
+              id="rememberMe"
             />
-            <label className="form-check-label" htmlFor="exampleCheck1">
+            <label className="form-check-label" htmlFor="rememberMe">
               Remember me
             </label>
           </div>
-          <button type="submit" className=" btn btn-primary">
+          <button type="submit" className="btn btn-primary w-100">
             Submit
           </button>
         </form>
       </div>
-    );
-}
+    </div>
+  );
+};
 
-export default Login
+export default Login;

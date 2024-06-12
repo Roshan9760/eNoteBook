@@ -1,15 +1,15 @@
-import Notes from './Notes'
 import React from "react";
+import Notes from "./Notes";
+import "../Css/Home.css";
 
 const Home = () => {
-
-
   return (
-      <div className="container my-3">
-      <Notes/>
+    <div className="home-container container my-5">
+      <div className="notes-section">
+        <Notes />
       </div>
-     
+    </div>
   );
-}
+};
 
-export default Home
+export default Home;

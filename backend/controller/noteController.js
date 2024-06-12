@@ -1,5 +1,5 @@
 //import 
-const Note = require('../models/Notes')
+const Note = require('../models/Notes.js')
 
 // ROUTE 1 : Get all the Notes of loggedIn user using GET method : api/notes/fetchallnotes - Login required
 const fetchallnotes = async (req, res) => {      

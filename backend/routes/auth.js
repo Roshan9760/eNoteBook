@@ -1,5 +1,5 @@
 // import the files that require
-const {login, register, getUserById,} = require("../controller/userController");
+const {login, register, getUserById,} = require("../controller/userController.js");
 const router = require("express").Router();
   
 // ceate route

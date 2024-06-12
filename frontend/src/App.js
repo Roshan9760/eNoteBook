@@ -6,6 +6,9 @@ import About from './components/About';
 import NoteState from './context/notes/notesState';
 import Login from './Authentication/Login';
 import Signup from './Authentication/Signup';
+import Contact from './components/Contact';
+
+
 
 
 function App() {
@@ -15,10 +18,12 @@ function App() {
         <Navbar />
         {/* <Alert message="This is Roshan App" /> */}
         <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/about" element={<About />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+         
         </Routes>
       </BrowserRouter>
     </NoteState>

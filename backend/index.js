@@ -1,9 +1,9 @@
 // this index.js is actually an express server
 const express = require('express')
 const cors = require('cors')
-const connectToMongo = require('./config/db');
-const authRoutes = require("./routes/auth");
-const noteRoutes = require("./routes/notes");
+const connectToMongo = require('./config/db.js');
+const authRoutes = require("./routes/auth.js");
+const noteRoutes = require("./routes/notes.js");
 const app = express()
 
 // load process.env file

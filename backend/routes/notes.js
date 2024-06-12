@@ -1,8 +1,8 @@
 // import the files that require 
-const { fetchallnotes, addnotes, updatenotes, deletenotes} = require("../controller/noteController");
+const { fetchallnotes, addnotes, updatenotes, deletenotes} = require("../controller/noteController.js");
 const router = require("express").Router();
 const { body}= require('express-validator');
-const fetchuser = require('../middleware/fetchuser');
+const fetchuser = require('../middleware/fetchuser.js');
 
 // some minimum condition 
 const authVerify = [

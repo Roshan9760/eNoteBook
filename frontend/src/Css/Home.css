@@ -1,0 +1,16 @@
+.home-container {
+    background-color: #e3f2fd;
+    /* Light blue background */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notes-section {
+    margin-top: 6px;
+}
+
+.notes-section h2 {
+    color: #1976d2;
+    /* Blue text color for section titles */
+}
